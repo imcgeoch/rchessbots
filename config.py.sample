@@ -1,7 +1,19 @@
 config = {
 
-    'reddit_username' : 'PGN-Bot',
-    'reddit_password' : 'pussinboots',
-    'user_agent' : 'PGN-Bot is a bot to reply to links in /r/chess with text-based versions of the games'
+    'username' : 'PGN-Bot',
+    'password' : '',
+    'user_agent' : 'PGN-Bot is a bot to reply to links in /r/chess with text-based versions of the games',
+    'subreddit_list' : ['www.chess.com/livechess/game', 'www.chess.com/echess/game', 'www.chessgames.com/perl/chessgame', 'en.lichess.org/'],
+# nested_list is used for comparing and generating links. 
+# for each site to process links from, provide 5 variables
+# 
+# [0] a fifteen character string unique to urls for that site's games
+# [1] the beginning of a url, common to all pgn files of games on that site
+# [2] the distance from the start of the url to the unique game id
+# [3] the length of the unique id
+# [4] the common url following the unique id, if any
+    'nested_list' : [('www.chess.com/l', 'http://www.chess.com/livechess/download_pgn?id=', 32, 9 , ''),('www.chess.com/e', 'http://www.chess.com/echess/download_pgn?id=',29,9, ''),('www.chessgames.', 'http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=', 38, 8, ''),('en.lichess.org/', 'http://en.lichess.org/', 15, 9 , '/pgn' )]
+
 
 }
+
