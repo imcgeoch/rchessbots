@@ -46,11 +46,11 @@ def go():
 
 def processLinkPost(submission):
     op_link = submission.url.lower()
-    for site in NESTED_LIST:
-        if site[0] in op_link and not submission.id in already_done:
-            print "found link: %s " % submission.url
-            already_done.append(submission.id)
-            break
+
+    if linkToPgn(op_link):
+        pgn=linkToPgn(op_link)   
+        print "found game at %s" %  submission.url
+        print "created pgn link: %s" % pgn[0]
     else:
         print "no chess game at %s" % submission.url
 
@@ -58,23 +58,26 @@ def processSelfPost(submission):
     op_text = submission.selftext.lower()
     link_list = []
     link_list = linksFromText(op_text)
-
-
-
+    for i in link_list:
+        print "links from selftext: " + i
     already_done.append(submission.id)
 
 def processComment(comment):
     comment_text = comment.body.lower()
     link_list = []
     link_list = linksFromText(comment_text)
-
+    for i in link_list:
+        print "links from comment: " + i
     already_done.append(comment.id)
 
 def linksFromText(post):
-    links_found = []
     link_text = []
+    if linkToPgn(post):
+        link_text = linkToPgn(post)
+    return link_text
 
-    # try this for every site:
+def linkToPgn(post):
+    pgnsCreated = []
     for n in NESTED_LIST:
         linkURL=n[0]
         pgnURL=n[1]
@@ -86,21 +89,14 @@ def linksFromText(post):
             idStart=i+urlLength
             idEnd=idStart+n[2]
             gameid = post[idStart:idEnd]
-            pgnCreated = '' 
+            newPgn = '' 
 
             if token == linkURL:
-                print "found link %s" % linkURL + gameid
-                pgnCreated = pgnURL + gameid + n[3]
-                print "created pgn: %s" % pgnCreated
-    # print links
-    for a in link_text:
-        print a
- 
-    return link_text
-        
-
-def checkLink():
-    return 0
+                # print "found link %s" % linkURL + gameid
+                newPgn = pgnURL + gameid + n[3]
+                pgnsCreated.append(newPgn)
+                # print "created pgn: %s" % newPgn
+    return pgnsCreated
 
 def getPgn(target):
     response = urllib2.urlopen(target)
