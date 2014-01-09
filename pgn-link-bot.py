@@ -14,13 +14,8 @@ import urllib2
 USERNAME = config['username']
 PASSWORD = config['password']
 USER_AGENT = config['user_agent']
-#SITE_LIST = config['subreddit_list']
-
-SITE_LIST = ['www.chess.com/livechess/game', 'www.chess.com/echess/game', 'www.chessgames.com/perl/chessgame', 'en.lichess.org/']
 
 NESTED_LIST = config['nested_list']
-
-nest = [('http://www.chess.com/livechess/game?id=', 'http://www.chess.com/livechess/download_pgn?id=', 9 , ''),('http://www.chess.com/echess/game?id=', 'http://www.chess.com/echess/download_pgn?id=', 9, ''),('http://www.chessgames.com/perl/chessgame?gid=', 'http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=', 8, ''),('en.lichess.org/', 'http://en.lichess.org/', 9, '/pgn' )]
 
 reddit = praw.Reddit(user_agent = USER_AGENT)
 reddit.login(username = USERNAME, password = PASSWORD)
@@ -33,31 +28,47 @@ def go():
     subreddit = reddit.get_subreddit('chessbottesting')  
     for  submission in subreddit.get_new(limit=10):
         
-  #      print "Checking " + submission.id
+        print "Checking " + submission.id
         if not submission.is_self:
- #           print "id'd as link post"
+            print "id'd as link post"
             processLinkPost(submission)
         else:
             print "id'd as self post"
             processSelfPost(submission)
 
+    for submission in subreddit.get_hot(limit=25):
+        flat_comments = praw.helpers.flatten_tree(submission.comments)
+        for comment in flat_comments:
+            print "found comment %s" % comment.id
+            processComment(comment)
+    print "Completed"
+    for p in already_done: print p
+
 def processLinkPost(submission):
     op_link = submission.url.lower()
     for site in NESTED_LIST:
         if site[0] in op_link and not submission.id in already_done:
-  #          print "found link \n ========== "
-  #          print submission.id + "\n\n"
+            print "found link: %s " % submission.url
             already_done.append(submission.id)
-    
-  #  for p in already_done: print "Completed: \n " + p
+            break
+    else:
+        print "no chess game at %s" % submission.url
 
 def processSelfPost(submission):
     op_text = submission.selftext.lower()
     link_list = []
     link_list = linksFromText(op_text)
 
-def processComment():
-    return 0
+
+
+    already_done.append(submission.id)
+
+def processComment(comment):
+    comment_text = comment.body.lower()
+    link_list = []
+    link_list = linksFromText(comment_text)
+
+    already_done.append(comment.id)
 
 def linksFromText(post):
     links_found = []
@@ -78,8 +89,9 @@ def linksFromText(post):
             pgnCreated = '' 
 
             if token == linkURL:
+                print "found link %s" % linkURL + gameid
                 pgnCreated = pgnURL + gameid + n[3]
-                print "found link: %s" % pgnCreated
+                print "created pgn: %s" % pgnCreated
     # print links
     for a in link_text:
         print a
@@ -102,29 +114,3 @@ def postPgn(links):
 print 'preparing to go'
 go()
 
-# print " testing nesting"
-nest = [('www.chess.com/livechess/game', 'http://www.chess.com/livechess/download_pgn?id=', '9' , ''),('www.chess.com/echess/game', 'http://www.chess.com/echess/download_pgn?id=', '9', ''),('www.chessgames.com/perl/chessgame', 'http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=', '8', ''),('en.lichess.org/', 'http://en.lichess.org/', '9', '/pgn' )]
-"""
-    this is known to work
-    # iterate through text
-    for i in range(0, len(post)-15):
-        # compare 15- character segments 
-        token =  post[i:i+15]
-        for n in NESTED_LIST:
-            # generate vars from NESED_LIST and iterator
-            lURL=n[0]
-            pURL=n[1]
-            idStart=i+n[2]
-            idEnd=idStart+n[3]
-            gameid = post[idStart:idEnd]
-            pgnCreated = '' 
-
-            print n[2]
-            print len(n[1])
-            print
-
-            if token == lURL:
-                pgnCreated = pURL + gameid + n[4]
-                print "found link: %s" % pgnCreated
-                link_text.append(pgnCreated)                
-"""
