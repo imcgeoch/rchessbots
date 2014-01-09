@@ -20,7 +20,7 @@ SITE_LIST = ['www.chess.com/livechess/game', 'www.chess.com/echess/game', 'www.c
 
 NESTED_LIST = config['nested_list']
 
-# nest = [('www.chess.com/livechess/game', 'http://www.chess.com/livechess/download_pgn?id=', '9' , ''),('www.chess.com/echess/game', 'http://www.chess.com/echess/download_pgn?id=', '9', ''),('www.chessgames.com/perl/chessgame', 'http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=', '8', ''),('en.lichess.org/', 'http://en.lichess.org/', '9', '/pgn' )]
+nest = [('http://www.chess.com/livechess/game?id=', 'http://www.chess.com/livechess/download_pgn?id=', 9 , ''),('http://www.chess.com/echess/game?id=', 'http://www.chess.com/echess/download_pgn?id=', 9, ''),('http://www.chessgames.com/perl/chessgame?gid=', 'http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=', 8, ''),('en.lichess.org/', 'http://en.lichess.org/', 9, '/pgn' )]
 
 reddit = praw.Reddit(user_agent = USER_AGENT)
 reddit.login(username = USERNAME, password = PASSWORD)
@@ -63,28 +63,24 @@ def linksFromText(post):
     links_found = []
     link_text = []
 
-    # iterate through text
-    for i in range(0, len(post)-15):
-        # compare 15- character segments 
-        token =  post[i:i+15]
-        for n in NESTED_LIST:
+    # try this for every site:
+    for n in NESTED_LIST:
+        linkURL=n[0]
+        pgnURL=n[1]
+        urlLength = len(linkURL)
+        # iterate through text
+        for i in range(0, len(post)-urlLength):
             # generate vars from NESED_LIST and iterator
-            lURL=n[0]
-            pURL=n[1]
-            idStart=i+n[2]
-            idEnd=idStart+n[3]
+            token =  post[i:i+urlLength]
+            idStart=i+urlLength
+            idEnd=idStart+n[2]
             gameid = post[idStart:idEnd]
             pgnCreated = '' 
 
-            print n[2]
-            print len(n[1])
-            print
-
-            if token == lURL:
-                pgnCreated = pURL + gameid + n[4]
+            if token == linkURL:
+                pgnCreated = pgnURL + gameid + n[3]
                 print "found link: %s" % pgnCreated
-                link_text.append(pgnCreated)                
-
+    # print links
     for a in link_text:
         print a
  
@@ -108,3 +104,27 @@ go()
 
 # print " testing nesting"
 nest = [('www.chess.com/livechess/game', 'http://www.chess.com/livechess/download_pgn?id=', '9' , ''),('www.chess.com/echess/game', 'http://www.chess.com/echess/download_pgn?id=', '9', ''),('www.chessgames.com/perl/chessgame', 'http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=', '8', ''),('en.lichess.org/', 'http://en.lichess.org/', '9', '/pgn' )]
+"""
+    this is known to work
+    # iterate through text
+    for i in range(0, len(post)-15):
+        # compare 15- character segments 
+        token =  post[i:i+15]
+        for n in NESTED_LIST:
+            # generate vars from NESED_LIST and iterator
+            lURL=n[0]
+            pURL=n[1]
+            idStart=i+n[2]
+            idEnd=idStart+n[3]
+            gameid = post[idStart:idEnd]
+            pgnCreated = '' 
+
+            print n[2]
+            print len(n[1])
+            print
+
+            if token == lURL:
+                pgnCreated = pURL + gameid + n[4]
+                print "found link: %s" % pgnCreated
+                link_text.append(pgnCreated)                
+"""
