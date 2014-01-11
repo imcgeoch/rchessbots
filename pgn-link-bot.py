@@ -9,6 +9,8 @@ with a comment containing the pgn in [pgn] tags for the veiwer plugin.
 from config import config
 import praw
 import urllib2
+import re
+
 
 # define local variables
 USERNAME = config['username']
@@ -51,6 +53,7 @@ def processLinkPost(submission):
         pgn=linkToPgn(op_link)   
         print "found game at %s" %  submission.url
         print "created pgn link: %s" % pgn[0]
+        postPgn(submission, pgn)
     else:
         print "no chess game at %s" % submission.url
 
@@ -60,6 +63,8 @@ def processSelfPost(submission):
     link_list = linksFromText(op_text)
     for i in link_list:
         print "links from selftext: " + i
+    if link_list:
+        postPgn(submission, link_list) 
     already_done.append(submission.id)
 
 def processComment(comment):
@@ -68,6 +73,8 @@ def processComment(comment):
     link_list = linksFromText(comment_text)
     for i in link_list:
         print "links from comment: " + i
+    if link_list:
+        postPgn(comment, link_list)
     already_done.append(comment.id)
 
 def linksFromText(post):
@@ -94,18 +101,34 @@ def linkToPgn(post):
             if token == linkURL:
                 # print "found link %s" % linkURL + gameid
                 newPgn = pgnURL + gameid + n[3]
+                newPgn = fixErrors (newPgn)
                 pgnsCreated.append(newPgn)
                 # print "created pgn: %s" % newPgn
     return pgnsCreated
+
+
+def fixErrors(url):
+    # fixes problematic chess.com urls. I could probably use
+    # a similar approach to avoid linkToPgn() entirely 
+    print "\n\nregex should change %s" % url
+    url = re.sub('livechess', 'echess', url) 
+    print "to %s" % url
+    return url
 
 def getPgn(target):
     response = urllib2.urlopen(target)
     html = response.read()
     return html
 
-def postPgn(links):
-    post = "[pgn] " + pgn + "[/pgn]"
-       
+def postPgn(parent, links):
+    pgn = [] 
+
+    for link in links:
+        pgn.append(getPgn(link))
+    singlePgn = '\n'.join(pgn)
+
+    post = "[pgn]\n" + singlePgn + "\n[/pgn]"
+    print post       
  
 print 'preparing to go'
 go()
