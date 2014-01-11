@@ -16,7 +16,7 @@ import re
 USERNAME = config['username']
 PASSWORD = config['password']
 USER_AGENT = config['user_agent']
-
+REGEX_LIST = config['regex_list']
 NESTED_LIST = config['nested_list']
 
 reddit = praw.Reddit(user_agent = USER_AGENT)
@@ -84,6 +84,18 @@ def linksFromText(post):
     return link_text
 
 def linkToPgn(post):
+    linksCreated = []
+    for n in REGEX_LIST:
+        # print n[0] + " 1"
+        linksFound = re.findall(n[0], post)
+        # print linksFound
+        for link in linksFound:
+            # print link 
+            linksCreated.append(re.sub(n[1], n[2], link))
+    return linksCreated
+
+
+def oldlinkToPgn(post):
     pgnsCreated = []
     for n in NESTED_LIST:
         linkURL=n[0]
@@ -105,7 +117,6 @@ def linkToPgn(post):
                 pgnsCreated.append(newPgn)
                 # print "created pgn: %s" % newPgn
     return pgnsCreated
-
 
 def fixErrors(url):
     # fixes problematic chess.com urls. I could probably use
@@ -129,6 +140,7 @@ def postPgn(parent, links):
 
     post = "[pgn]\n" + singlePgn + "\n[/pgn]"
     print post       
+    print link
  
 print 'preparing to go'
 go()
