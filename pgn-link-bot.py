@@ -11,12 +11,14 @@ import praw
 import urllib2
 import re
 import datetime
+import time
 
 # define local variables
 USERNAME = config['username']
 PASSWORD = config['password']
 USER_AGENT = config['user_agent']
 REGEX_LIST = config['regex_list']
+POST_TEXT = config['post_text']
 
 already_done = []     
 
@@ -28,7 +30,11 @@ def go():
     for submission in subreddit.get_new(limit=10):
         # print "Checking " + submission.id
         log.write("Checking " + submission.id +"\n")
-        if submission.id in already_done:
+        commenters = []
+        for x in submission.comments:
+            commenters.append(x.author.name)
+            print x.author.name + str(x.author.name == 'PGN-Bot')
+        if "PGN-Bot" in commenters:
             log.write("%s is already done\n" % submission.id)
         else:
             if not submission.is_self:
@@ -45,7 +51,12 @@ def go():
         for comment in flat_comments:
             # print "found comment %s" % comment.id
             log.write("found comment %s \n" % comment.id)
-            if comment.id in already_done:
+            commenters = []
+            for x in comment.replies:
+                print x
+                commenters.append(x)
+            if "PGN-Bot" in commenters:
+             
                 log.write("%s is already done" % comment.id)
                 break
             processComment(comment)
@@ -64,7 +75,7 @@ def processLinkPost(submission):
         # print "created pgn link: %s" % pgn[0]
         log.write("found game at %s\n" %  submission.url)
         log.write( "created pgn link: %s\n" % pgn[0])
-        postPgn(submission, pgn)
+        postPgn(submission, pgn, submission.add_comment)
     else:
         # print "no chess game at %s" % submission.url
         log.write("no chess game at %s\n" % submission.url)
@@ -79,7 +90,7 @@ def processSelfPost(submission):
         log.write( "Game found in  selftext %s: " % submission.id + i +"\n") 
     
     if link_list:
-        postPgn(submission, link_list)
+        postPgn(submission, link_list, submission.add_comment)
     else:
         # print "No games in %s" % submission.id 
         log.write("No games in %s\n" % submission.id)
@@ -94,7 +105,7 @@ def processComment(comment):
         log.write( "Game found in comment %s: \n" % comment.id + i)
     
     if link_list:
-        postPgn(comment, link_list)
+        postPgn(comment, link_list, comment.reply)
     else:
         # print "No games in %s" % comment.id
         log.write( "No games in %s \n" % comment.id)
@@ -124,7 +135,7 @@ def getPgn(target):
     html = response.read()
     return html
 
-def postPgn(parent, links):
+def postPgn(parent, links, methodtorun):
     pgn = [] 
     
     for link in links:
@@ -132,23 +143,19 @@ def postPgn(parent, links):
     singlePgn = '\n'.join(pgn)
 
     post = "[pgn]\n" + singlePgn + "\n[/pgn]"
-    # print post       
-
-
+    while True:
+        try:
+            methodtorun(post + POST_TEXT)       
+            break
+        except praw.errors.RateLimitExceeded as error:
+            print "Waiting %d seconds to be allowed to post" % (error.sleep_time/2)
+            time.sleep(error.sleep_time/2)
 
 print "Opening logfile"
 log = open('logfile' , 'a')
 log.write("\n\n Starting up...\n\n")
 
 
-print "Opening completed_posts"
-log.write("Opening completed posts\n")
-#done = open('completed_posts' , 'r+')
-#already_done = done.readlines()
-#print done
-
-
-already_done = [line.strip() for line in open('completed_posts')]
 
 
 print "logging in to reddit"
