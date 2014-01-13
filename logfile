@@ -2,10 +2,9 @@
 
  Starting up...
 
-Opening completed posts
 Logging in to reddit...
 Starting scan...
-2014-01-11 18:04:15.546018
+2014-01-12 23:05:27.267098
 Checking 1urpd8
 identified as self post
 No games in 1urpd8
@@ -14,477 +13,57 @@ identified as link post
 no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
 Checking 1uos6q
 identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 18:08:05.180665
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
+Created link to http://www.chess.com/echess/download_pgn?id=80763914
+Created link to http://www.chess.com/echess/download_pgn?id=82206822
+Created link to http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
+Created link to http://en.lichess.org/z5rz3e2j/pgn
+Game found in selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
+Game found in selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
+Game found in selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
+Game found in selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
+Successfully posted: ceo7jos
 Checking 1uo72g
 identified as link post
+Created link to http://en.lichess.org/rc7l3n66/pgn
 found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 18:29:58.693624
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 18:30:31.440529
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 18:31:58.377410
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 21:26:03.411479
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 21:26:44.395546
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 21:29:08.891214
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 21:31:50.092726
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Opening completed posts
-Logging in to reddit...
-Starting scan...
-2014-01-11 21:32:53.405205
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-11 21:48:34.452430
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-11 21:57:23.453268
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-11 22:22:03.924816
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-11 22:22:47.577244
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-11 22:23:29.031634
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 02:35:01.423346
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 14:17:20.427132
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 14:18:16.789987
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 14:19:15.573866
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-1uos6q is already done
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 14:20:02.775645
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-1uos6q is already done
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 14:30:20.290961
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-1uos6q is already done
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
+Successfully posted: ceo7jr1
 Checking 1uo2k3
 identified as link post
+Created link to http://www.chess.com/echess/download_pgn?lid=693423565
 found game at http://www.chess.com/livechess/game?id=693423565
-created pgn link: http://www.chess.com/echess/download_pgn?lid=693423565
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 15:01:26.417563
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-1uos6q is already done
-Checking 1uo72g
-1uo72g is already done
-Checking 1uo2k3
-identified as link post
-found game at http://www.chess.com/livechess/game?id=693423565
-created pgn link: http://www.chess.com/echess/download_pgn?lid=693423565
+Successfully posted: ceo7jt4
 Checking 1unr2a
 identified as link post
+Created link to http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1055873
 found game at http://www.chessgames.com/perl/chessgame?gid=1055873
-created pgn link: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1055873
+Successfully posted: ceo7jv0
+found comment ceo7jv0 
+No games in ceo7jv0 
+found comment ceo7jt4 
+No games in ceo7jt4 
+found comment ceo7jr1 
+No games in ceo7jr1 
+found comment ceo7jos 
+No games in ceo7jos 
+found comment cenxqfj 
+Created link to http://www.chess.com/echess/download_pgn?id=80763922
+Created link to http://www.chess.com/echess/download_pgn?id=80763922
+Game found in comment cenxqfj: 
+http://www.chess.com/echess/download_pgn?id=80763922Successfully posted: ceo7k8m
+found comment cekzl2q 
+Created link to http://www.chess.com/echess/download_pgn?id=80763898
+Created link to http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1741913
+Created link to http://www.chess.com/echess/download_pgn?id=80763898
+Created link to http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1741913
+Game found in comment cekzl2q: 
+http://www.chess.com/echess/download_pgn?id=80763898Game found in comment cekzl2q: 
+http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1741913Successfully posted: ceo7ka5
+
+Completed pass, sleeping for 5 minutes
 
 
- Starting up...
-
-Logging in to reddit...
 Starting scan...
-2014-01-12 15:03:15.728844
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-1uos6q is already done
-Checking 1uo72g
-1uo72g is already done
-Checking 1uo2k3
-1uo2k3 is already done
-Checking 1unr2a
-identified as link post
-found game at http://www.chessgames.com/perl/chessgame?gid=1055873
-created pgn link: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1055873
-found comment cenu5xt 
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 15:21:01.793549
+2014-01-12 23:11:17.620977
 Checking 1urpd8
 identified as self post
 No games in 1urpd8
@@ -499,32 +78,30 @@ Checking 1uo2k3
 1uo2k3 is already done
 Checking 1unr2a
 1unr2a is already done
-found comment cenu5xt 
-No games in cenu5xt 
-found comment cen8fyq 
-No games in cen8fyq 
-found comment cen8yjw 
-No games in cen8yjw 
-found comment cendc3t 
-No games in cendc3t 
-found comment cendvhk 
-No games in cendvhk 
-found comment ceneou2 
-No games in ceneou2 
-found comment cenjt8f 
-No games in cenjt8f 
-found comment centtzb 
-No games in centtzb 
-found comment cekzl2q 
-Game found in comment cekzl2q: 
-http://www.chess.com/echess/download_pgn?id=80763898Game found in comment cekzl2q: 
-http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1741913
+found comment ceo7ka5 
+No games in ceo7ka5 
+found comment ceo7k8m 
+No games in ceo7k8m 
+found comment ceo7jv0 
+No games in ceo7jv0 
+found comment ceo7jt4 
+No games in ceo7jt4 
+found comment ceo7jr1 
+No games in ceo7jr1 
+found comment ceo7jos 
+No games in ceo7jos 
+found comment cenxqfj 
+cenxqfj is already done
+Completed pass, sleeping for 5 minutes
 
- Starting up...
 
-Logging in to reddit...
 Starting scan...
-2014-01-12 15:29:34.798492
+2014-01-12 23:16:55.871856
+Checking 1v30k9
+identified as link post
+Created link to http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1733420
+found game at http://www.chessgames.com/perl/chessgame?gid=1733420
+Successfully posted: ceo7tdq
 Checking 1urpd8
 identified as self post
 No games in 1urpd8
@@ -539,75 +116,29 @@ Checking 1uo2k3
 1uo2k3 is already done
 Checking 1unr2a
 1unr2a is already done
-found comment cenu5xt 
+found comment ceo7tdq 
+No games in ceo7tdq 
+found comment ceo7ka5 
+No games in ceo7ka5 
+found comment ceo7k8m 
+No games in ceo7k8m 
+found comment ceo7jv0 
+No games in ceo7jv0 
+found comment ceo7jt4 
+No games in ceo7jt4 
+found comment ceo7jr1 
+No games in ceo7jr1 
+found comment ceo7jos 
+No games in ceo7jos 
+found comment cenxqfj 
+cenxqfj is already done
+Completed pass, sleeping for 5 minutes
 
 
- Starting up...
-
-Logging in to reddit...
 Starting scan...
-2014-01-12 15:41:23.793453
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 15:42:57.270315
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 15:44:17.151752
-Checking 1urpd8
-identified as self post
-No games in 1urpd8
-Checking 1urn9s
-identified as link post
-no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
-Checking 1uos6q
-identified as self post
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=80763914
-Game found in  selftext 1uos6q: http://www.chess.com/echess/download_pgn?id=82206822
-Game found in  selftext 1uos6q: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1121202
-Game found in  selftext 1uos6q: http://en.lichess.org/z5rz3e2j/pgn
-Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-
-
- Starting up...
-
-Logging in to reddit...
-Starting scan...
-2014-01-12 15:45:27.407105
+2014-01-12 23:22:42.047353
+Checking 1v30k9
+1v30k9 is already done
 Checking 1urpd8
 identified as self post
 No games in 1urpd8
@@ -617,28 +148,3 @@ no chess game at https://praw.readthedocs.org/en/latest/pages/writing_a_bot.html
 Checking 1uos6q
 1uos6q is already done
 Checking 1uo72g
-identified as link post
-found game at http://en.lichess.org/rc7l3n66/black
-created pgn link: http://en.lichess.org/rc7l3n66/pgn
-Checking 1uo2k3
-identified as link post
-found game at http://www.chess.com/livechess/game?id=693423565
-created pgn link: http://www.chess.com/echess/download_pgn?lid=693423565
-Checking 1unr2a
-identified as link post
-found game at http://www.chessgames.com/perl/chessgame?gid=1055873
-created pgn link: http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1055873
-found comment cenwieh 
-No games in cenwieh 
-found comment cenw7j2 
-No games in cenw7j2 
-found comment cekzl2q 
-Game found in comment cekzl2q: 
-http://www.chess.com/echess/download_pgn?id=80763898Game found in comment cekzl2q: 
-http://www.chessgames.com/perl/nph-chesspgn?text=1&gid=1741913found comment cenwsc9 
-No games in cenwsc9 
-found comment cenx2f1 
-No games in cenx2f1 
-
-Completed: 
-1urpd81urn9s1uo72g1uo2k31unr2acenwiehcenw7j2cekzl2qcenwsc9cenx2f1
