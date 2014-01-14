@@ -1,4 +1,4 @@
-
+#! /usr/bin/python
 ''' 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -60,7 +60,7 @@ def doPosts(subreddit):
         commenters = []
         for x in submission.comments:
             commenters.append(x.author.name)
-        if 'PGN-Bot' in commenters:
+        if USERNAME in commenters:
             print '%s is already done' % submission.id
         else:
             if not submission.is_self:
@@ -77,7 +77,7 @@ def doComments(subreddit):
         commenters = []
         for x in comment.replies:
             commenters.append(x.author.name)
-        if 'PGN-Bot' in commenters:
+        if  USERNAME in commenters:
             
             print '%s is already done' % comment.id
             break
@@ -138,11 +138,18 @@ def getPgn(target):
     return html
 
 def postPgn(links, postmethod):
-    pgn = [] 
+    singlePgn = ''
+    toLong = False
     for link in links:
-        pgn.append(getPgn(link))
-    singlePgn = '\n'.join(pgn)
+        nextPgn = getPgn(link)
+        if len(singlePgn+nextPgn) <= 9700:
+            singlePgn = singlePgn + nextPgn + '\n'
+        else:
+            toLong = True
+            break
     post = '[pgn]\n' + singlePgn + '\n[/pgn]'
+    if toLong:
+        post = post + 'Post is too long, one or more games not included.\n\n'
     while True:
         try:
             newPost = postmethod(post + POST_TEXT)
