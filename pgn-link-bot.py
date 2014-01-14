@@ -1,5 +1,5 @@
 
-""" 
+''' 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
@@ -27,14 +27,13 @@ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
 STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
 IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-"""
+'''
 
 from config import config
 import praw
 import urllib2
 import re
 import datetime
-import time
 
 # define variables
 USERNAME = config['username']
@@ -47,43 +46,40 @@ POST_TEXT = config['post_text']
 
 # define methods
 def go():
-    log.write("Starting scan...\n")
-    log.write(str(datetime.datetime.now())+"\n")
+    print 'Starting scan...'
+    print str(datetime.datetime.now())
     for s in SUBREDDIT_LIST:
         subreddit = reddit.get_subreddit(s)  
+        print 'Reading posts and comments in /r/%s' % subreddit
         doPosts(subreddit)   
         doComments(subreddit)
-    
-    log.write("\nCompleted pass, sleeping for 5 minutes\n\n\n")
-    print "Completed pass, sleeping for 5 minutes"
-    time.sleep(300)
 
 def doPosts(subreddit):
     for submission in subreddit.get_new(limit=10):
-        log.write("Checking " + submission.id +"\n")
+        print 'Checking ' + submission.id 
         commenters = []
         for x in submission.comments:
             commenters.append(x.author.name)
-        if "PGN-Bot" in commenters:
-            log.write("%s is already done\n" % submission.id)
+        if 'PGN-Bot' in commenters:
+            print '%s is already done' % submission.id
         else:
             if not submission.is_self:
-                log.write("identified as link post\n")
+                print 'identified as link post'
                 processLinkPost(submission)
             else:
-                log.write("identified as self post\n")
+                print 'identified as self post'
                 processSelfPost(submission)
 
 def doComments(subreddit):
     flat_comments = subreddit.get_comments()
     for comment in flat_comments:
-        log.write("found comment %s \n" % comment.id)
+        print 'found comment %s ' % comment.id
         commenters = []
         for x in comment.replies:
             commenters.append(x.author.name)
-        if "PGN-Bot" in commenters:
+        if 'PGN-Bot' in commenters:
             
-            log.write("%s is already done" % comment.id)
+            print '%s is already done' % comment.id
             break
         processComment(comment)
 
@@ -92,34 +88,33 @@ def processLinkPost(submission):
     pgn=linkToPgn(op_link)   
     
     if pgn:
-        log.write("found game at %s\n" %  submission.url)
-    #    log.write( "created pgn link: %s\n" % pgn[0])
+        print 'found game at %s' %  submission.url
         postPgn(pgn, submission.add_comment)
     else:
-        log.write("no chess game at %s\n" % submission.url)
+        print 'no chess game at %s' % submission.url
 
 def processSelfPost(submission):
     op_text = submission.selftext.lower()
     link_list = []
     link_list = linkToPgn(op_text)
     for i in link_list:
-        log.write( "Game found in selftext %s: " % submission.id + i +"\n") 
+        print  'Game found in selftext %s: ' % submission.id + i 
     if link_list:
         postPgn(link_list, submission.add_comment)
     else:
-        log.write("No games in %s\n" % submission.id)
+        print 'No games in %s' % submission.id
 
 def processComment(comment):
     comment_text = comment.body.lower()
     link_list = []
     link_list = linksFromText(comment_text)
     for i in link_list:
-        log.write( "Game found in comment %s: \n" % comment.id + i)
+        print  'Game found in comment %s: ' % comment.id + i
     
     if link_list:
         postPgn(link_list, comment.reply)
     else:
-        log.write( "No games in %s \n" % comment.id)
+        print  'No games in %s ' % comment.id
 
 def linksFromText(post):
     link_text = []
@@ -133,7 +128,7 @@ def linkToPgn(post):
         linksFound = re.findall(n[0], post)
         for link in linksFound:
             newLink = re.sub(n[1], n[2], link)
-            log.write("Created link to %s\n" % newLink)
+            print 'Created link to %s' % newLink
             linksCreated.append(newLink)
     return linksCreated
 
@@ -147,28 +142,22 @@ def postPgn(links, postmethod):
     for link in links:
         pgn.append(getPgn(link))
     singlePgn = '\n'.join(pgn)
-    post = "[pgn]\n" + singlePgn + "\n[/pgn]"
+    post = '[pgn]\n' + singlePgn + '\n[/pgn]'
     while True:
         try:
             newPost = postmethod(post + POST_TEXT)
-            log.write("Successfully posted: %s\n" % newPost.id)       
+            print 'Successfully posted: %s' % newPost.id       
             break
         except praw.errors.RateLimitExceeded as error:
-            log.write( "Waiting %d seconds to be allowed to post\n" % min(error.sleep_time, 270))
+            print  'Waiting %d seconds to be allowed to post' % min(error.sleep_time, 270)
             time.sleep(min(error.sleep_time, 270))
 
 # Begin Script
 
-print "Opening logfile"
-log = open('logfile' , 'a')
-log.write("\n\n Starting up...\n\n")
-
-print "logging in to reddit"
-log.write("Logging in to reddit...\n")
+print 'Logging in to reddit...'
 reddit = praw.Reddit(user_agent = USER_AGENT)
 reddit.login(username = USERNAME, password = PASSWORD)
  
 print 'preparing to go'
-while True:
-    go()
+go()
 
