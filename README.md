@@ -19,8 +19,8 @@ that some discussed on r/chess, such as finding and
 fixing posts of pgns, or aggregating posts for a weekly digest.
 It could integrate such features if they were written.
 
-Logs are kept so that the operator can check on what the 
-program was doing in case of bugs etc.
+Output can be piped to stdout to keep a log of what's happening.
+This bot does not run continually but can be set in a crontab.
 
 A configuration file, config.py, allows the operator to 
 choose the username, password, API agent, and subreddits
