@@ -31,9 +31,9 @@ POSSIBILITY OF SUCH DAMAGE.
 
 from config import config
 import praw
-import urllib2
 import re
 import datetime
+import requests
 
 # define variables
 USERNAME = config['username']
@@ -95,7 +95,6 @@ def processLinkPost(submission):
 
 def processSelfPost(submission):
     op_text = submission.selftext.lower()
-    link_list = []
     link_list = linkToPgn(op_text)
     for i in link_list:
         print  'Game found in selftext %s: ' % submission.id + i 
@@ -106,8 +105,7 @@ def processSelfPost(submission):
 
 def processComment(comment):
     comment_text = comment.body.lower()
-    link_list = []
-    link_list = linksFromText(comment_text)
+    link_list = linkToPgn(comment_text)
     for i in link_list:
         print  'Game found in comment %s: ' % comment.id + i
     
@@ -133,9 +131,10 @@ def linkToPgn(post):
     return linksCreated
 
 def getPgn(target):
-    response = urllib2.urlopen(target)
-    html = response.read()
-    return html
+    print target
+    r = requests.get(str(target)) 
+    print r.text
+    return r.text
 
 def postPgn(links, postmethod):
     singlePgn = ''
