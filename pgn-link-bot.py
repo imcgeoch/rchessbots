@@ -57,10 +57,11 @@ def go():
 def doPosts(subreddit):
     for submission in subreddit.get_new(limit=10):
         print 'Checking ' + submission.id 
-        commenters = []
+        comment_found = False
         for x in submission.comments:
-            commenters.append(x.author.name)
-        if USERNAME in commenters:
+            if re.search('\[pgn\].*\[/pgn\]', x.body, re.DOTALL):
+                comment_found = True
+        if comment_found :
             print '%s is already done' % submission.id
         else:
             if not submission.is_self:
@@ -74,11 +75,11 @@ def doComments(subreddit):
     flat_comments = subreddit.get_comments()
     for comment in flat_comments:
         print 'found comment %s ' % comment.id
-        commenters = []
+        comment_found = False
         for x in comment.replies:
-            commenters.append(x.author.name)
-        if  USERNAME in commenters:
-            
+            if re.search('\[pgn\].*\[/pgn\]', x.body, re.DOTALL):
+                comment_found = True
+        if comment_found:
             print '%s is already done' % comment.id
             break
         processComment(comment)
