@@ -86,7 +86,7 @@ def doComments(subreddit):
 
 def processLinkPost(submission):
     op_link = submission.url.lower()
-    pgn=linkToPgn(op_link)   
+    pgn=getGoodLinks(op_link)   
     
     if pgn:
         print 'found game at %s' %  submission.url
@@ -95,8 +95,8 @@ def processLinkPost(submission):
         print 'no chess game at %s' % submission.url
 
 def processSelfPost(submission):
-    op_text = submission.selftext.lower()
-    link_list = linkToPgn(op_text)
+    op_text = submission.selftext
+    link_list = getGoodLinks(op_text)
     for i in link_list:
         print  'Game found in selftext %s: ' % submission.id + i 
     if link_list:
@@ -105,8 +105,8 @@ def processSelfPost(submission):
         print 'No games in %s' % submission.id
 
 def processComment(comment):
-    comment_text = comment.body.lower()
-    link_list = linkToPgn(comment_text)
+    comment_text = comment.body
+    link_list = getGoodLinks(comment_text)
     for i in link_list:
         print  'Game found in comment %s: ' % comment.id + i
     
@@ -117,11 +117,11 @@ def processComment(comment):
 
 def linksFromText(post):
     link_text = []
-    if linkToPgn(post):
-        link_text = linkToPgn(post)
+    if getGoodLinks(post):
+        link_text = getGoodLinks(post)
     return link_text
 
-def linkToPgn(post):
+def getGoodLinks(post):
     linksCreated = []
     for n in REGEX_LIST:
         linksFound = re.findall(n[0], post)
@@ -133,9 +133,9 @@ def linkToPgn(post):
 
 def getPgn(target):
     print target
-    r = requests.get(str(target)) 
-    print r.text
-    return r.text
+    r = requests.get(str(target))
+    print r.text.replace('\n', '\n    ').encode('utf-8')
+    return '    ' + r.text.replace('\n', '\n    ')
 
 def postPgn(links, postmethod):
     singlePgn = ''
@@ -147,7 +147,7 @@ def postPgn(links, postmethod):
         else:
             toLong = True
             break
-    post = '[pgn]\n' + singlePgn + '\n[/pgn]'
+    post = '[pgn]\n\n' + singlePgn + '\n\n[/pgn]'
     if toLong:
         post = post + 'Post is too long, one or more games not included.\n\n'
     while True:
@@ -167,4 +167,4 @@ reddit.login(username = USERNAME, password = PASSWORD)
  
 print 'preparing to go'
 go()
-
+print 'done!'
