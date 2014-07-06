@@ -126,6 +126,7 @@ def getGoodLinks(post):
     for n in REGEX_LIST:
         linksFound = re.findall(n[0], post)
         for link in linksFound:
+            print 'trying to print %s' % link
             newLink = re.sub(n[1], n[2], link)
             print 'Created link to %s' % newLink
             linksCreated.append(newLink)
