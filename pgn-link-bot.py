@@ -85,7 +85,7 @@ def doComments(subreddit):
         processComment(comment)
 
 def processLinkPost(submission):
-    op_link = submission.url.lower()
+    op_link = submission.url
     pgn=getGoodLinks(op_link)   
     
     if pgn:
@@ -97,6 +97,8 @@ def processLinkPost(submission):
 def processSelfPost(submission):
     op_text = submission.selftext
     link_list = getGoodLinks(op_text)
+    if re.search('\[pgn\].*\[/pgn\]', op_text, re.DOTALL):
+		print 'comment already contains game'
     for i in link_list:
         print  'Game found in selftext %s: ' % submission.id + i 
     if link_list:
@@ -107,6 +109,10 @@ def processSelfPost(submission):
 def processComment(comment):
     comment_text = comment.body
     link_list = getGoodLinks(comment_text)
+    if re.search('\[pgn\].*\[/pgn\]', comment_text, re.DOTALL):
+		print 'comment already contains game'
+		return
+
     for i in link_list:
         print  'Game found in comment %s: ' % comment.id + i
     
@@ -126,7 +132,6 @@ def getGoodLinks(post):
     for n in REGEX_LIST:
         linksFound = re.findall(n[0], post)
         for link in linksFound:
-            print 'trying to print %s' % link
             newLink = re.sub(n[1], n[2], link)
             print 'Created link to %s' % newLink
             linksCreated.append(newLink)
@@ -159,6 +164,9 @@ def postPgn(links, postmethod):
         except praw.errors.RateLimitExceeded as error:
             print  'Waiting %d seconds to be allowed to post' % min(error.sleep_time, 270)
             time.sleep(min(error.sleep_time, 270))
+	except praw.errors.APIException as error:
+	    print 'API Exception: ', error
+            break
 
 # Begin Script
 
