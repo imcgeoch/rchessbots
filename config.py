@@ -1,8 +1,5 @@
 config = {
 
-    'username' : 'PGN-Bot',
-    'password' : '' ,
-    'user_agent' : 'PGN-Bot is a bot to reply to links in /r/chess with text-based versions of the games',
     'subreddit_list' : ['chessbottesting', 'chess'],
 
 # Three regular expressions are needed:

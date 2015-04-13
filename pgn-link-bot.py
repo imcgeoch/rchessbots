@@ -30,15 +30,16 @@ POSSIBILITY OF SUCH DAMAGE.
 '''
 
 from config import config
+from credentials import credentials
 import praw
 import re
 import datetime
 import requests
 
 # define variables
-USERNAME = config['username']
-PASSWORD = config['password']
-USER_AGENT = config['user_agent']
+USERNAME = credentials['username']
+PASSWORD = credentials['password']
+USER_AGENT = credentials['user_agent']
 SUBREDDIT_LIST = config['subreddit_list']
 REGEX_LIST = config['regex_list']
 POST_TEXT = config['post_text']
